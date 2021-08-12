@@ -12,7 +12,7 @@ export const getStaticPaths = async () => {
 
 	return {
 		paths,
-		fallback: false,
+		fallback: "blocking",
 	};
 };
 
@@ -25,7 +25,7 @@ export const getStaticProps = async (context) => {
 	const data = await res.json();
 
 	return {
-		props: { student: data },
+		props: { student: await data },
 		revalidate: 60,
 	};
 };
