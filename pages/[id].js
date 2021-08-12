@@ -22,7 +22,7 @@ export const getStaticProps = async (context) => {
 		"https://express-student-api-production.up.railway.app/api/students/" +
 			id
 	);
-	const data = res.json();
+	const data = await res.json();
 
 	return {
 		props: { student: data },
@@ -34,7 +34,7 @@ const DataView = ({ student }) => {
 		<div>
 			<h1>{student.name}</h1>
 			<h1>{student.roll}</h1>
-			<h1>{student.present}</h1>
+			<h1>{student.present.toString()}</h1>
 		</div>
 	);
 };
